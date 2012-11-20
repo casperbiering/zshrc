@@ -287,6 +287,7 @@ echo "WARNING: You do not have any differ installed!"
 
 # set options
 setopt    append_history               # don't overwrite history
+setopt    inc_append_history           # append immediately
 setopt    extended_history             # [unset] 
 setopt    hist_find_no_dups            # [unset] ignore dupes in history search
 setopt    hist_ignore_dups             # this will not put _consecutive_ duplicates in the history
