@@ -11,7 +11,7 @@ startup_warnings () {
 ## TODO split into local/ssh stuff
 	WARNSTRING=''
 	foreach test (wget screen nano watch less iotop ssh-add); do
-		[[ -x $(which $test) ]] || WARNSTRING+="$test "
+		[[ -x $(which-bin $test) ]] || WARNSTRING+="$test "
 	done
 
 	[[ -n $WARNSTRING ]] && echo "Not installed: $WARNSTRING"

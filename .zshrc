@@ -166,6 +166,10 @@ any() {
 	fi
 }
 
+# don't return aliases and stderr from which
+which-bin() {
+	which --skip-alias --skip-functions "$1" 2>/dev/null
+}
 
 # :completion:function:completer:command:argument:tag
 
@@ -252,7 +256,7 @@ EDITOR="nano"
 
 CORRECT_IGNORE='_*'
 
-if [[ -x $( which less) ]]
+if [[ -x $( which-bin less) ]]
 export LESSCHARSET="utf-8"
 then
 	export PAGER="less"
@@ -270,18 +274,20 @@ else
 	export PAGER="more"
 fi
 
-[[ -x $(which colordiff) ]] && alias diff=colordiff
 
-([[ -x $(which w3m) ]]       && export BROWSER="w3m")      || \
-([[ -x $(which links2) ]]    && export BROWSER="links2")   || \
-([[ -x $(which elinks) ]]    && export BROWSER="elinks")   || \
-([[ -x $(which lynx) ]]      && export BROWSER="lynx")     || \
-([[ -x $(which links) ]]     && export BROWSER="links")    || \
+
+[[ -x $(which-bin colordiff) ]] && alias diff=colordiff
+
+([[ -x $(which-bin w3m) ]]       && export BROWSER="w3m")      || \
+([[ -x $(which-bin links2) ]]    && export BROWSER="links2")   || \
+([[ -x $(which-bin elinks) ]]    && export BROWSER="elinks")   || \
+([[ -x $(which-bin lynx) ]]      && export BROWSER="lynx")     || \
+([[ -x $(which-bin links) ]]     && export BROWSER="links")    || \
 echo "WARNING: You do not have any browser installed!"
 
-([[ -x $(which vimdiff) ]]   && export DIFFER="vimdiff")   || \
-([[ -x $(which colordiff) ]] && export DIFFER="colordiff") || \
-([[ -x $(which diff) ]]      && export DIFFER="diff")      || \
+([[ -x $(which-bin vimdiff) ]]   && export DIFFER="vimdiff")   || \
+([[ -x $(which-bin colordiff) ]] && export DIFFER="colordiff") || \
+([[ -x $(which-bin diff) ]]      && export DIFFER="diff")      || \
 echo "WARNING: You do not have any differ installed!"
 
 
