@@ -10,7 +10,7 @@ startup_warnings () {
 
 ## TODO split into local/ssh stuff
 	WARNSTRING=''
-	foreach test (pastebinit screen vim watch less w3m iotop rsibreak ssh-add pinentry); do
+	foreach test (wget screen nano watch less iotop ssh-add); do
 		[[ -x $(which $test) ]] || WARNSTRING+="$test "
 	done
 
