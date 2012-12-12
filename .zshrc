@@ -171,6 +171,13 @@ which-bin() {
 	which --skip-alias --skip-functions "$1" 2>/dev/null
 }
 
+# change terminal to iso-8859-1
+use-iso-8859-1() {
+	export LC_CTYPE=en_US.ISO-8859-1
+	export LESSCHARSET=iso8859
+	echo "done - remember to change the terminal as well"
+}
+
 # :completion:function:completer:command:argument:tag
 
 zstyle    ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
