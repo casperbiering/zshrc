@@ -257,7 +257,8 @@ EDITOR="nano"
 CORRECT_IGNORE='_*'
 
 if [[ -x $( which-bin less) ]]
-export LESSCHARSET="utf-8"
+	export LESSCHARSET="utf-8"
+	export LESS="-R -M"
 then
 	export PAGER="less"
 	if [[ $terminfo[colors] -ge 8 ]]
