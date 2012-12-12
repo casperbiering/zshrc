@@ -252,7 +252,7 @@ HISTFILE=~/.zsh_history
 SAVEHIST=50000
 HISTSIZE=50000
 
-EDITOR="nano"
+export EDITOR="nano"
 
 CORRECT_IGNORE='_*'
 
