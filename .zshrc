@@ -249,6 +249,7 @@ PATH=/usr/local/bin:$PATH
 [[ -d /usr/lib/ccache ]] && PATH=/usr/lib/ccache:$PATH
 [[ -d ~/.bin ]] && PATH=~/.bin:$PATH
 [[ -d ~/bin ]] && PATH=~/bin:$PATH
+[[ -d ~/node_modules/.bin ]] && PATH=~/node_modules/.bin:$PATH
 [[ -d /usr/local/vim_extended/bin ]] && PATH=/usr/local/vim_extended/bin:$PATH
 
 watch=(notme)
